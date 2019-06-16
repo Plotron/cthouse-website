@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -21,5 +22,12 @@ public class Customer {
 
     //login to nr_tel
     //password
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "customers_events",
+                joinColumns = @JoinColumn(name = "customers_id"),
+                inverseJoinColumns = @JoinColumn(name = "event_id"))
+    private List<Event> eventList;
+
 
 }

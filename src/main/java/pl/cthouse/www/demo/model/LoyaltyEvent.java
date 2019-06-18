@@ -4,30 +4,28 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
 @Entity
-@Table(name = "event")
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Event {
+public class LoyaltyEvent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //TODO ?? timestamp??
-    private LocalTime localTime;
+    @DateTimeFormat(pattern = "HH:mm, dd-MM-yyyy")
+    private LocalDateTime timestamp;
 
-    private int points;
+    private int loyaltyPointsGranted;
 
-    private int sub_points;
-
-    //TODO to chyba niżej nie ma sensu ; o PS: rano musze to zobaczyć
-    @ManyToMany(mappedBy = "customers_events")
-    private List<Customer> customerList;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Customer customer;
 }

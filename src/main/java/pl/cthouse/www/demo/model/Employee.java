@@ -28,12 +28,13 @@ public class Employee {
     @Size(min = 4, max = 24)
     private String username;
 
+    private String password;
+
     @Size(max = 9)
     private String phoneNumber;
 
-    //TODO PIN do logowania nfc
+    //PIN do logowania nfc
 
-    //początek / koniec pracy
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateStart;
 

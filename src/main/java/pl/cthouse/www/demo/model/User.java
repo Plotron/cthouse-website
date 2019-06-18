@@ -34,7 +34,7 @@ public class User {
     @Size(min = 4, max = 24)
     private String surname;
 
-    //TODO [A] -> [P] może warto jakieś zabezpieczenia czy coś | można również dodać wpisanie podwójne hasła. @Transient nieodwzorowuje w bazie danych
+    // [A] -> [P] może warto jakieś zabezpieczenia czy coś | można również dodać wpisanie podwójne hasła. @Transient nieodwzorowuje w bazie danych
     private String password;
 
 

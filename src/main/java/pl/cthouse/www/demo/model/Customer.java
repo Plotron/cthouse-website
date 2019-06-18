@@ -4,30 +4,30 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "customers")
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id = UUID.randomUUID();
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy =  "org.hibernate.id.UUIDGenerator"
+    )
+    private UUID id;
 
-    //login to nr_tel
+    //login to email, OAuth
     //password
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "customers_events",
-                joinColumns = @JoinColumn(name = "customers_id"),
-                inverseJoinColumns = @JoinColumn(name = "event_id"))
-    private List<Event> eventList;
-
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<LoyaltyEvent> loyaltyEventList;
 
 }

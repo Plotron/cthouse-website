@@ -30,7 +30,7 @@ public class Employee {
 
     private String password;
 
-    @Size(max = 9)
+    @Size(max = 12)
     private String phoneNumber;
 
     //PIN do logowania nfc

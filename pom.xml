@@ -16,6 +16,11 @@
 
     <properties>
         <java.version>1.8</java.version>
+
+        <property name="hibernate.dialect" value="org.hibernate.dialect.PostgresPlusDialect"/>
+        <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
+        <property name="javax.persistence.schema-generation.scripts.create-target" value="./create.sql"/>
+        <property name="javax.persistence.schema-generation.scripts.drop-target" value="./drop.sql"/>
     </properties>
 
     <dependencies>
@@ -49,6 +54,10 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
@@ -58,19 +67,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.1-api</artifactId>
-            <version>1.0.2.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-annotations</artifactId>
-            <version>3.5.6-Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>2.1.9.RELEASE</version>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

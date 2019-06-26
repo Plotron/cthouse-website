@@ -2,8 +2,7 @@ package pl.cthouse.www.demo.config;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import pl.cthouse.www.demo.model.Customer;
 import pl.cthouse.www.demo.model.Employee;
 import pl.cthouse.www.demo.model.LoyaltyEvent;
@@ -11,9 +10,8 @@ import pl.cthouse.www.demo.repository.CustomerRepository;
 import pl.cthouse.www.demo.repository.EmployeeRepository;
 import pl.cthouse.www.demo.repository.LoyaltyEventRepository;
 
-@Configuration
-public class RepositoryInitializer {
-
+@Component
+public class RepositoryInitializer implements InitializingBean {
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -24,12 +22,9 @@ public class RepositoryInitializer {
     @Autowired
     private LoyaltyEventRepository loyaltyEventRepository;
 
-    @Bean
-    InitializingBean init(){
-
-        return () -> {
-
-            if (customerRepository.findAll().isEmpty() == true)
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        if (customerRepository.findAll().isEmpty() == true)
             {
                 try {
 
@@ -43,7 +38,7 @@ public class RepositoryInitializer {
 
                     LoyaltyEvent loyaltyEvent1 = new LoyaltyEvent();
                     loyaltyEvent1.setLoyaltyPointsGranted(1);
-                    loyaltyEvent1.setCustomer(customer1);
+                    //loyaltyEvent1.setCustomer(customer1);
                     loyaltyEventRepository.save(loyaltyEvent1);
 
                     customerRepository.save(customer1);
@@ -53,4 +48,4 @@ public class RepositoryInitializer {
             }
         };
     }
-}
+

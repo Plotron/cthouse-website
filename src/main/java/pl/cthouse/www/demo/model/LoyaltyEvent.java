@@ -1,9 +1,6 @@
 package pl.cthouse.www.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -12,9 +9,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 @Entity
-@Getter @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class LoyaltyEvent {
 
     @Id
@@ -26,6 +21,6 @@ public class LoyaltyEvent {
 
     private int loyaltyPointsGranted;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Customer customer;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    private Customer customer;
 }

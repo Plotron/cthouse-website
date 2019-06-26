@@ -22,7 +22,7 @@ public class Customer {
     //login to email, OAuth
     //password
 
-//    @OneToMany(fetch = FetchType.LAZY)
-//    private List<LoyaltyEvent> loyaltyEventList;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<LoyaltyEvent> loyaltyEventList;
 
 }

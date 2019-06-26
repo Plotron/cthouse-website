@@ -21,6 +21,6 @@ public class LoyaltyEvent {
 
     private int loyaltyPointsGranted;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    private Customer customer;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Customer customer;
 }

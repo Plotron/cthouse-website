@@ -12,7 +12,7 @@ import pl.cthouse.www.demo.repository.EmployeeRepository;
 import pl.cthouse.www.demo.repository.LoyaltyEventRepository;
 
 @Configuration
-public class RepositoryInitializer {
+public class RepositoryInitializer implements InitializingBean {
 
 
     @Autowired
@@ -24,11 +24,8 @@ public class RepositoryInitializer {
     @Autowired
     private LoyaltyEventRepository loyaltyEventRepository;
 
-    @Bean
-    InitializingBean init(){
-
-        return () -> {
-
+    @Override
+    public void afterPropertiesSet() throws Exception {
             if (customerRepository.findAll().isEmpty() == true)
             {
                 try {
@@ -53,4 +50,3 @@ public class RepositoryInitializer {
             }
         };
     }
-}

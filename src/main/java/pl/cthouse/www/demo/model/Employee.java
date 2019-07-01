@@ -1,23 +1,16 @@
 package pl.cthouse.www.demo.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Entity
-@Getter @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class Employee {
 
     @Id

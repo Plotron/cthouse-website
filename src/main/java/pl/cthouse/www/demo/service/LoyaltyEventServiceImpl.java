@@ -28,7 +28,7 @@ public class LoyaltyEventServiceImpl implements LoyaltyEventService {
 
     @Override
     public List<LoyaltyEvent> getAllLoyaltyEventsList() {
-        return null;
+        return loyaltyEventRepository.findAll();
     }
 
 }

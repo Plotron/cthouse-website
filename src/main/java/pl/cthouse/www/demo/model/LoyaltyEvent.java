@@ -16,7 +16,7 @@ public class LoyaltyEvent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @DateTimeFormat(pattern = "HH:mm, dd-MM-yyyy")
+    @DateTimeFormat(pattern = "HH:mm:ss, dd-MM-yyyy")
     private LocalDateTime timestamp;
 
     private int loyaltyPointsGranted;

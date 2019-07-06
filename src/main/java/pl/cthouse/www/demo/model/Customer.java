@@ -25,4 +25,7 @@ public class Customer {
     @OneToMany(fetch = FetchType.LAZY)
     private List<LoyaltyEvent> loyaltyEventList;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    private LoyaltyPointsSum loyaltyPointsSum;
+
 }

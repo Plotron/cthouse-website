@@ -1,16 +1,9 @@
 package pl.cthouse.www.demo.model;
 
 import lombok.Data;
-import lombok.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.validation.Valid;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,11 +11,13 @@ import java.time.LocalDateTime;
 public class LoyaltyPointsSum {
 
     @Id
-    @OneToOne(fetch = FetchType.EAGER)
-   private Customer customer;
+    private Long id;
 
-    @Valid
-    @Min(0)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn
+    @MapsId
+    private Customer customer;
+
     private Long sum;
 
     @DateTimeFormat(pattern = "HH:mm:ss, dd-MM-yyyy")

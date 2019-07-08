@@ -12,12 +12,8 @@ import java.util.UUID;
 public class Customer {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy =  "org.hibernate.id.UUIDGenerator"
-    )
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     //login to email, OAuth
     //password
@@ -25,7 +21,7 @@ public class Customer {
     @OneToMany(fetch = FetchType.LAZY)
     private List<LoyaltyEvent> loyaltyEventList;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "customer", cascade = CascadeType.ALL)
     private LoyaltyPointsSum loyaltyPointsSum;
 
 }

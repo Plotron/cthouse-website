@@ -1,22 +1,16 @@
 package pl.cthouse.www.demo.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Entity
-@Table(name = "employees")
-@Getter @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class Employee {
 
     @Id
@@ -25,17 +19,20 @@ public class Employee {
 
     @Valid
     @Size(min = 4, max = 24)
-    private String nickname;
+    private String username;
 
-    @Size(max = 9)
-    private int number_phone;
+    private String password;
 
-    //TODO PIN do logowania
+    @Size(max = 12)
+    private String phoneNumber;
 
-    //początek / koniec pracy
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date date_start;
+    //PIN do logowania nfc
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date date_end;
+    private LocalDate dateStart;
+
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dateEnd;
+
+    private boolean enabled;
 }

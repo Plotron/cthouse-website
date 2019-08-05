@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import pl.cthouse.www.demo.model.LoyaltyEvent;
+import pl.cthouse.www.demo.model.users.customer.LoyaltyEvent;
 import pl.cthouse.www.demo.repository.LoyaltyEventRepository;
 
 import java.util.List;

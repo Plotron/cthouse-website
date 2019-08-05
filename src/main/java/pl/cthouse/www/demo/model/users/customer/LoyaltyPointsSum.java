@@ -1,8 +1,7 @@
-package pl.cthouse.www.demo.model;
+package pl.cthouse.www.demo.model.users.customer;
 
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 

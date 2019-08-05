@@ -2,7 +2,7 @@ package pl.cthouse.www.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.cthouse.www.demo.model.LoyaltyPointsSum;
+import pl.cthouse.www.demo.model.users.customer.LoyaltyPointsSum;
 import pl.cthouse.www.demo.repository.LoyaltyPointsSumRepository;
 
 import java.util.List;
